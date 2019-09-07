@@ -11,6 +11,7 @@
     <br />
     <div class="row">
       <div class="col-sm-8 col-12">
+        <% if course.image.present? %>
         <%= course.description %>
         <% if course.image.url %>
         <%= image_tag course.image.url, class: 'img-fluid' %>
