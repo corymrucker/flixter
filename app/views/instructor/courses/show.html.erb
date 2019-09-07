@@ -33,15 +33,16 @@
 <br />
 <div class="booyah-box col-10 offset-1">
   <h1 class="text-center"><%= current_course.title %></h1>
-  <%= image_tag current_course.image, class: 'img-fluid' %>
-
+  <%= image_tag current_course.image.to_s, class: 'img-fluid' %>
+  <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right btn-lg' %>
+  <br class="clr" />
   <div class="text-center">
-    <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg float-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">
-        New Lesson...
-      </button>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newSectionModal">
+      Add a new section...
+    </button>
   </div>
-
+  <br />
+  <br />
   <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
       <li data-update-url="<%= instructor_section_path section %>" class="section-li">
@@ -95,7 +96,7 @@
         </button>
         <h4 class="modal-title" id="newSectionModalLabel">Add a new section</h4>
       </div>
-      <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm' } do |f| %>
+      <%= simple_form_for @lesson, url: instructor_course_sections_path(current_course) do |f| %>
   <div class="modal-body">
     <%= f.input :title %>
     <%= f.input :subtitle %>

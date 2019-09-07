@@ -1,6 +1,6 @@
 AWS_ACCESS_KEY: "AKIAXK5FON5GYPAX2XFV"
 AWS_SECRET_KEY: "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"
-AWS_BUCKET:     "coryflixter-user"
+AWS_BUCKET:     "coryflixter"
 AWS_REGION:     "us-east-1"
 
 SECRET_KEY: 'sk_test_hIgvJgy28wkTgImS9EZBTuig00QM5eWOIu'
